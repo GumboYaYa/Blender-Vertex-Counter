@@ -201,15 +201,19 @@ class DoCalcButton(bpy.types.Operator):
 
         return{'FINISHED'}
 
+classes = (
+    DoCalcButton,
+    VertexCounterPreferences,
+    VertexCounter,
+)
+
 def register():
-    bpy.utils.register_class(DoCalcButton)
-    bpy.utils.register_class(VertexCounterPreferences)
-    bpy.utils.register_class(VertexCounter)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 
 def unregister():
-    bpy.utils.unregister_class(DoCalcButton)
-    bpy.utils.unregister_class(VertexCounterPreferences)
-    bpy.utils.unregister_class(VertexCounter)
+    for cls in classes:
+        bpy.utils.unregister_class(cls)
 
 if __name__ == '__main__':
     register()
